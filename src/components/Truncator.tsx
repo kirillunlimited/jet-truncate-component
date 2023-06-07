@@ -92,7 +92,7 @@ export default function Truncator(props: Props) {
     calculateTrancation();
   }, [calculateTrancation]);
 
-  const debouncedOnResize = useCallback(() => debounce(onResize, 0), [onResize]);
+  const debouncedOnResize = debounce(onResize, 0);
 
   useEffect(() => {
     calculateTrancation();
@@ -101,7 +101,7 @@ export default function Truncator(props: Props) {
     return () => {
       window.removeEventListener('resize', debouncedOnResize);
     }
-  }, [calculateTrancation, debouncedOnResize]);
+  }, [calculateTrancation]);
 
   return (
     <div
