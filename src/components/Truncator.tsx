@@ -47,7 +47,7 @@ const getVisibleText = (options: {
   if (memo[text]) {
     textWidth = memo[text];
   } else {
-    textWidth = context.measureText(content)?.width;
+    textWidth = context.measureText(content).width;
     memo[text] = textWidth;
   }
 
