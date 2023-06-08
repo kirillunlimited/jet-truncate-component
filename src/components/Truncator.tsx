@@ -27,6 +27,14 @@ const getVisibleText = (options: {
   tailLength: number
 }): {text: string, tail: string} => {
   const {context, containerWidth, text, index, tailLength} = options;
+
+  if (tailLength === 0) {
+    return {
+      text,
+      tail: ''
+    };
+  }
+
   let {tail} = options;
 
   let content = text;
@@ -39,7 +47,7 @@ const getVisibleText = (options: {
   if (memo[text]) {
     textWidth = memo[text];
   } else {
-    textWidth = context.measureText(content).width;
+    textWidth = context.measureText(content)?.width;
     memo[text] = textWidth;
   }
 

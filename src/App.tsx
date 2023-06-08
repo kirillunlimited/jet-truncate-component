@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Truncator
-        tailLength={15}
+        tailLength={0}
         title="my title"
         className="customClass"
       >
